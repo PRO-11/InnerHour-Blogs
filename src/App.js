@@ -57,7 +57,7 @@ function App() {
     getApiData()
   },[pageNo])
   return (
-    <div class=" flex flex-col" >
+    <div class=" flex flex-col min-h-screen overflow-y-auto" >
      
      {modal&&<div id="defaultModal" tabindex="-1" aria-hidden="true" class="fixed   bg-black bg-opacity-50 top-0 left-0 right-0 z-50 flex justify-center   w-full p-11  overflow-x-hidden overflow-y-auto md:inset-0 h-full max-h-full ">
       
@@ -87,7 +87,7 @@ function App() {
       <div >
         <img src={logo} class="mx-28 my-3 h-12" />
       </div>
-      <div class="h-full  md:w-full w-max " style={{"backgroundColor":"#f5f5f5"}}>
+      <div class=" min-h-screen overflow-y-auto md:w-full w-max " style={{"backgroundColor":"#f5f5f5"}}>
       <div class="flex  flex-row md:justify-between  ">
         {(searchQuery.trim().length==0)&&<h3 class="mx-28 my-14 font-semibold text-xl">All articles</h3>}
         {(searchQuery.trim().length!=0)&&<h3 class="mx-28 my-14 font-semibold text-xl w-auto ">Search results for:{searchQuery}</h3>}
