@@ -1,8 +1,8 @@
 import React from 'react'
-import Iron from './iron.jpg'
-import { Link } from 'react-router-dom'
-function Card({title,description,slug,openModal}) {
 
+import { Link } from 'react-router-dom'
+function Card({title,description,slug,openModal,imgUrl}) {
+  console.log(imgUrl)
   return (
     
     <div
@@ -10,7 +10,7 @@ function Card({title,description,slug,openModal}) {
     className="border   bg-gray-50 scale-90  xs:scale-100 w-[350px] md:w-full  min-[1500px]:w-[340px!important] h-[350px] flex flex-col items-center justify-between rounded-xl overflow-hidden hover:-translate-y-1 hover:scale-95 xs:hover:scale-[1.025] transition-transform"
   >
     <a onClick={()=>openModal(slug)}>
-        <img class="rounded-t-lg w-full h-36" src={Iron} alt=""  />
+        <img class="rounded-t-lg w-full h-36" src={imgUrl} alt=""  />
 
         <div
         className=" z-[5] my-5 mx-3  w-full h-64 flex flex-col justify-between items-start p-3 pt-0 bg-gray-50"

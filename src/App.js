@@ -1,5 +1,4 @@
 import logo from './logo.png'
-import demo from './demo.jpg'
 import './App.css';
 import Card from './Card';
 import { useEffect, useState } from 'react';
@@ -62,14 +61,14 @@ function App() {
      {modal&&<div id="defaultModal" tabindex="-1" aria-hidden="true" class="fixed   bg-black bg-opacity-50 top-0 left-0 right-0 z-50 flex justify-center   w-full p-11  overflow-x-hidden overflow-y-auto md:inset-0 h-full max-h-full ">
       
     <div class="relative w-full max-w-3xl max-h-full flex flex-col  ">
-    <button type="button" class="mb-3   bg-gray-700 rounded-full text-sm p-1.5 ml-auto inline-flex flex-row-reverse items-center text-white" data-modal-hide="defaultModal" onClick={()=>setmodal(false)}>
+    <button type="button" class="mb-3   bg-gray-600 rounded-full text-sm p-1.5 ml-auto inline-flex flex-row-reverse items-center text-white" data-modal-hide="defaultModal" onClick={()=>setmodal(false)}>
                     <svg aria-hidden="true" class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
                     <span class="sr-only">Close modal</span>
                 </button>
-        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+        <div class="relative bg-white rounded-xl shadow dark:bg-gray-700">
             
-            <div class="flex items-start justify-between  border-b rounded-t dark:border-gray-600">
-               <img src={demo} class="rounded-t-lg w-full h-96"/>
+            <div class="flex items-start justify-between   rounded-3xl dark:border-gray-600">
+               <img src={"https:"+modelDetail.thumb} class="rounded-t-lg w-full h-96"/>
                
             </div>
           
@@ -105,12 +104,12 @@ function App() {
       </div>
       <div className=" mx-24  mt-5 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3  gap-1 ">
       {(searchQuery.trim().length==0)&&data.map((ele)=>{
-        return <Card key={ele.id} title={ele.title} description={ele.short_description} slug={ele.slug} openModal={openModal}/>
+        return <Card key={ele.id} title={ele.title} imgUrl={"https:"+ele.thumb} description={ele.short_description} slug={ele.slug} openModal={openModal}/>
       })}
       </div>
       {(filteredCards.length>0&&searchQuery.trim().length>0)?<div className=" mx-24  mt-5 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 place-items-center gap-1 ">
       {filteredCards.map((ele)=>{
-        return <Card key={ele.id} title={ele.title} description={ele.short_description} slug={ele.slug} openModal={openModal}/>
+        return <Card key={ele.id} title={ele.title} imgUrl={"https:"+ele.thumb} description={ele.short_description} slug={ele.slug} openModal={openModal}/>
       })}
       </div>:
       searchQuery.trim().length!=0&&<p class="text-center text-lg font-bold">No results for this search</p>
