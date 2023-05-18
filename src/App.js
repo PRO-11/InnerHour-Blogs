@@ -17,39 +17,38 @@ function App() {
 
   const handleSearch = (event) => {
     const query = event.target.value.toLowerCase();
-    console.log(query)
+   
     setSearchQuery(query);
 
     // Filter the cards based on the search query
     const filtered = data.filter((card) =>
       card.title.toLowerCase().includes(query)
     );
-    console.log(filtered)
+    
     setFilteredCards(filtered);
   };
 
   const handlePrevious=()=>{
-    console.log("previous")
+   
     setPageNo(pageNo-1);
   }
   const handleNext=()=>{
-    console.log("next")
-    console.log(limit)
+ 
     setPageNo(pageNo+1);
   }
 
   const openModal=async(slug)=>{
-    console.log(slug)
+   
     setmodal(true)
     const response=await axios.get(`https://api.theinnerhour.com/v1/blogdetail/${slug}`)
-      console.log(response.data)
+      
       setDetail(response.data.blog)
 
   }
   useEffect(()=>{
     const getApiData=async()=>{
       const response=await axios.get(`https://api.theinnerhour.com/v1/customers/resources/articles/list?page=${pageNo}&limit=10`)
-      console.log(response.data.total_page)
+      
       setlimit(response.data.total_page)
       setData(response.data.data)
     }

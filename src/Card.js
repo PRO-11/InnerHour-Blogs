@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Link } from 'react-router-dom'
 function Card({title,description,slug,openModal,imgUrl}) {
-  console.log(imgUrl)
+  
   return (
     
     <div
